@@ -55,6 +55,10 @@ CREATE TABLE comments(
     name VARCHAR NOT NULL,
     message VARCHAR NOT NULL);
 ```
+## Clone the code:
+```
+ git clone git@github.com:Asiya-Ismail/ForumApp.git
+```
 
 ## Connect DATABASE:
 
