@@ -1,4 +1,4 @@
-# PostItApp
+# ForumApp
 
 A simple forum application using NodeJS,REACT,Postgres and Express. You can add, delete, edit and update you posts. You can also select a specific post and create comments underneath it.
 
