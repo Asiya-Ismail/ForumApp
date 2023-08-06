@@ -36,7 +36,7 @@ psql postgres
 
 > Create Database
 ```
-CREATE DATABASE Post_It;
+CREATE DATABASE postgres;
 ```
   
 > Create the posts
