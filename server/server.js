@@ -15,7 +15,7 @@ app.post("/api/v1/posts", async (req,res) => {
     try{
         const newpost = await pool.query( "INSERT INTO posts (title ,body ) VALUES ($1 ,$2) RETURNING *;",[req.body.Title,req.body.Body]);
         console.log("POST CREATED") 
-        res.status(200).json({
+        res.status(201).json({
             status: "success",
             data: newpost.rows[0]
         });    
@@ -32,7 +32,7 @@ app.get("/api/v1/posts", async (req,res) => {
     try{
         const allposts = await pool.query( "SELECT *FROM posts;")
         const descposts = await pool.query( "SELECT * FROM posts ORDER BY post_id DESC;")
-        res.status(201).json({
+        res.status(200).json({
             status: "success",
             data: {
                 allposts: allposts.rows,
@@ -71,7 +71,7 @@ app.get("/api/v1/posts/:id", async (req,res) => {
 app.get("/api/v1/sortpostsasc", async (req,res) => {
     try{
         const allposts = await pool.query( "SELECT * FROM posts ORDER BY post_id ASC;")
-        res.status(201).json({
+        res.status(200).json({
             status: "success",
             data: allposts.rows
         });
@@ -85,7 +85,7 @@ app.get("/api/v1/sortpostsasc", async (req,res) => {
 app.get("/api/v1/sortpostsdesc", async (req,res) => {
     try{
         const allposts = await pool.query( "SELECT * FROM posts ORDER BY post_id DESC;")
-        res.status(201).json({
+        res.status(200).json({
             status: "success",
             data: allposts.rows
         });
@@ -101,7 +101,7 @@ app.put("/api/v1/posts/:id", async (req,res) => {
     try{
         const { id } = req.params;
         const updatePost = await pool.query("UPDATE posts SET title = $1, body =$2 WHERE post_id = $3 RETURNING *", [req.body.Title,req.body.Body,id]);
-        res.status(200).json({
+        res.status(201).json({
             status: "success",
             data: updatePost.rows[0]
         }); 
@@ -173,7 +173,7 @@ app.put("/api/v1/posts/:postid/comment/:id", async (req,res) => {
         const { postid } = req.params;
         console.log(req.params)
         const updateComment = await pool.query("UPDATE comments SET name = $1, message = $2 WHERE comment_id = $3 AND post_id = $4 RETURNING *", [req.body.name,req.body.message,id,postid]);
-        res.status(200).json({
+        res.status(201).json({
             status: "success",
             data: updateComment.rows[0]
         });
