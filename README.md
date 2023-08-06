@@ -29,17 +29,17 @@ A simple forum application using NodeJS,REACT,Postgres and Express. You can add,
 
 Open Postgres on terminal and run the following queries:
 
-> start-up postgres on terminal with postgres user
-```
-psql postgres
-```
-
 > Create Database
 ```
 CREATE DATABASE postgres;
 ```
+
+> start-up postgres database on terminal
+```
+psql postgres
+```
   
-> Create the posts
+> Create the posts table
 ```
 CREATE TABLE posts (
     post_id serial NOT NULL PRIMARY KEY,
