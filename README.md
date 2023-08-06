@@ -9,7 +9,6 @@ A simple forum application using NodeJS,REACT,Postgres and Express. You can add,
   ```
   npm install react react-dom --save  
   npm install axios
-  npm install react-router-dom
   ```
 - Install Postgres
   [Download Postgres](https://www.postgresql.org/download/)
