@@ -78,6 +78,7 @@ npm run dev
 - start react-app:
 ```
 cd client
+npm install
 npm start
 ```
 
